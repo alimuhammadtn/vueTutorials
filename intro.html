@@ -1,0 +1,91 @@
+<html>
+	<head>
+	</head>
+
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+
+		
+		<div id="root" v-bind:title="messageTitle" v-if="true" v-on:click="reverseMsg">
+
+			{{ message }}
+
+			<div >
+				<ul>
+					<li v-for="item in items">
+
+					{{ item.txt }}
+
+					</li>
+				</ul>
+
+			</div>
+
+			<div>
+				<input type="text" v-model="textValue">
+
+				<span> {{ textValue }} </span>
+			</div>
+		
+		</div>
+
+		<div id="app-7">
+
+		  <ol>
+		    <!--
+		      Now we provide each todo-item with the todo object
+		      it's representing, so that its content can be dynamic.
+		      We also need to provide each component with a "key",
+		      which will be explained later.
+		    -->
+		    <todo-item      v-for="item in groceryList"		      v-bind:ali="item"		      v-bind:key="item.id">
+
+		    </todo-item>
+
+		  </ol>
+
+		</div>
+       
+        <div id="app">
+  <p>{{ obj.foo }}</p>
+  <!-- this will no longer update obj.foo! -->
+  <button @click="obj.foo = 'baz'">Change it</button>
+</div>
+
+
+		<script>
+
+					
+			var app = new Vue({
+
+				el:'#root',
+
+				data:{
+
+					message :'hello vue',
+
+					messageTitle:'title here',
+
+					items :[
+								{ txt:'18'},
+
+								{ txt:'1'},
+
+								{ txt:'5'}
+
+					],
+					textValue : 'hello textbox'
+				},
+				methods:{
+					reverseMsg()
+					{
+						this.message = this.message.split('').reverse().join('');
+					}
+				}
+			})
+		</script>
+		<script src="intro.js"></script>
+
+	</body>
+</html>
